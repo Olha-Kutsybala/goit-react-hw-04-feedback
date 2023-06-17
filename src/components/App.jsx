@@ -28,25 +28,19 @@ const App = () => {
   };
 
   const countTotalFeedback = () => {
-    // const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
-    //  const { good } = this.state;
     return Math.round((good / countTotalFeedback()) * 100) || 0;
   };
 
-  // const { good, neutral, bad } = this.state;
-  // const objKey = Object.keys(this.state);
-  //     const total = this.countTotalFeedback();
-  //     const positivePercentage = this.countPositiveFeedbackPercentage();
   return (
     <div className={css.container}>
       <Section title="Please leave feedback">
         <div className={css.button_container}>
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={Object.keys({ good, neutral, bad })}
             onLeaveFeedback={addFeedback}
           ></FeedbackOptions>
         </div>
